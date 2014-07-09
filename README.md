@@ -19,7 +19,9 @@ Step by step instructions:
 
 1. Log on to the CHTC submit node:
 
+```
     ssh <netID>@submit-3.chtc.wisc.edu
+```
 
 2. Make a directory for your python work.
 
