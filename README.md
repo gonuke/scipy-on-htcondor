@@ -22,60 +22,59 @@ Step by step instructions:
    ssh <netID>@submit-3.chtc.wisc.edu
    ```
 
-2. Make a directory for your python work.
+1. Make a directory for your python work.
 
-```
-mkdir myProject
-cd myProject
-```
+   ```
+   mkdir myProject
+   cd myProject
+   ```
 
-3. Copy the pythonSubmit tar file to your workspace and extract the
+1. Copy the pythonSubmit tar file to your workspace and extract the
 archive.
 
-```
-wget <URL here...>
-tar zxvf scipy-on-htcondor.tgz
-```
+   ```
+   wget <URL here...>
+   tar zxvf scipy-on-htcondor.tgz
+   ```
 
-4. a. Copy your python program to the indir/ subdirectory.
+1. Copy your python program to the indir/ subdirectory.
 
-```
-option a:scp <myLocalMachine>:bin/myPythonProgram.py indir/
-option b:  scp bin/myPythonProgram.py submit-3.chtc.wisc.edu:myProject/indir
-```
+   ```
+   option a:scp <myLocalMachine>:bin/myPythonProgram.py indir/
+   option b:  scp bin/myPythonProgram.py submit-3.chtc.wisc.edu:myProject/indir
+   ```
+1. Copy any other input files to the indir/ subdirectory.
 
-   b. Copy any other input files to the indir/ subdirectory.
+1. Make sure the first line of the python program looks like this:
 
-5. Make sure the first line of the python program looks like this:
+   ```
+   #!/usr/bin/env python
+   ```
 
-```
-#!/usr/bin/env python
-```
+   It should match the first line of the pythontest.py program:
 
-It should match the first line of the pythontest.py program:
+   ```
+   head -1 indir/*py
+   ```
 
-```
-head -1 indir/*py
-```
-
-6. Edit the condor submit file, following the (albeit, sparse) directions in
+1. Edit the condor submit file, following the (albeit, sparse) directions in
    that file:
 
-```
-nano queue/process.cmd
-```
+   ```
+   nano queue/process.cmd
+   ```
 
-7. Submit the jobs to condor:
+1. Submit the jobs to condor:
 
-```
-condor_submit queue/process.cmd
-```
+   ```
+   condor_submit queue/process.cmd
+   ```
 
-8. When the jobs have finished, run the cleanup script:
+1. When the jobs have finished, run the cleanup script:
 
-```
-queue/cleanupCHTCPython.pl
-```
+   ```
+   queue/cleanupCHTCPython.pl
+   ```
 
 Your output will be in the outdir directory.  Check the files in `chtcOutput/`
 for errors.
