@@ -1,8 +1,7 @@
 Running python+numpy+scipy on HTCondor
 ======================================
 
-Author:  Steve Goldstein  sgoldstein@wisc.edu
-July, 2014 
+Author:  Steve Goldstein  sgoldstein@wisc.edu  July, 2014 
 
 To run python with numpy or scipy on condor, you have to ensure that
 the execute node has a version of python that includes those
@@ -10,7 +9,7 @@ libraries.   CHTC has solved that problem by building such a version of
 python and providing a means to install that version on the execute
 node.
 
-The purpose of pythonSubmit.tgz is to give you an easy way to
+The purpose of the scipy-on-htcondor project is to give you an easy way to
 implement CHTC's solution that can be widely applied.  On the CHTC web
 pages, you can read about some of the details and a more general
 implementation. 
@@ -19,9 +18,9 @@ Step by step instructions:
 
 1. Log on to the CHTC submit node:
 
-```
-ssh <netID>@submit-3.chtc.wisc.edu
-```
+   ```
+   ssh <netID>@submit-3.chtc.wisc.edu
+   ```
 
 2. Make a directory for your python work.
 
@@ -35,13 +34,14 @@ archive.
 
 ```
 wget <URL here...>
-tar zxvf pythonSubmit.tgz
+tar zxvf scipy-on-htcondor.tgz
 ```
 
 4. a. Copy your python program to the indir/ subdirectory.
 
 ```
-scp <myLocalMachine>:bin/myPythonProgram.py indir/
+option a:scp <myLocalMachine>:bin/myPythonProgram.py indir/
+option b:  scp bin/myPythonProgram.py submit-3.chtc.wisc.edu:myProject/indir
 ```
 
    b. Copy any other input files to the indir/ subdirectory.
