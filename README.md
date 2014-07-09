@@ -37,15 +37,21 @@ archive.
    tar zxvf scipy-on-htcondor.tgz
    ```
 
-1. Copy your python program to the indir/ subdirectory.
+1. Open a another terminal on your own local machine and transfer the program
+   to the indir/ subdirectory.
+
+    ```
+    scp /path/to/my/myPythonProgram.py <netID>@submit-3.chtc.wisc.edu:myProject/indir
+    ```
+       
+1. Transfer any other input files to the indir/ subdirectory.
 
    ```
-   option a:scp <myLocalMachine>:bin/myPythonProgram.py indir/
-   option b:  scp bin/myPythonProgram.py submit-3.chtc.wisc.edu:myProject/indir
+   scp /path/to/other/necessary_input_files <netID>@submit-3.chtc.wisc.edu:myProject/indir
    ```
-1. Copy any other input files to the indir/ subdirectory.
 
-1. Make sure the first line of the python program looks like this:
+1. Now back on the terminal in which you are logged into the CHTC submit node,
+   make sure the first line of the python program looks like this:
 
    ```
    #!/usr/bin/env python
