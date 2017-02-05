@@ -29,7 +29,7 @@ Step by step instructions:
    cd myProject
    ```
 
-1. Copy the pythonSubmit tar file to your workspace and extract the
+1. Copy the scipy-on-htcondor.tar.gz tar file to your workspace and extract the
 archive.
 
    ```
